@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './style.css'
 import {AiOutlineClose} from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
+import { createPostAction } from '../../redux/actions/post';
 
 function Modal() {
     const dispatch=useDispatch();
@@ -15,6 +16,12 @@ function Modal() {
     const modalKapat=()=>{
         dispatch({type:'MODAL',payload:false})
     }
+
+    const postOlustur=()=>{
+
+        dispatch(createPostAction(postData))
+        dispatch({type:'MODAL',payload:false})
+    }
     return (
         <div className='containn'>
             <div className='container-modal'>
@@ -26,7 +33,7 @@ function Modal() {
                 <input value={postData.title} onChange={postFunc} name='title' type="text"  placeholder='title ' className='i'/>
                 <input value={postData.description} onChange={postFunc} name='description' type="text"  placeholder='description' className='i'/>
             </div>
-            <div className='postO'>POST OLUŞTUR</div>
+            <div onClick={postOlustur} className='postO'>POST OLUŞTUR</div>
             </div>
         </div>
     )

@@ -7,6 +7,8 @@ import Navbar from './components/navbar';
 import { useSelector } from 'react-redux';
 import Modal from './components/Modal/Modal';
 import { RootState } from './type'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const { token } = useToken()
@@ -21,12 +23,13 @@ function App() {
 
   return (
     <Router>
+      <ToastContainer />
       {token && <Navbar />
       }
 
      { modal && <Modal />}
       <Routes>
-        <Route path="/" element={!token ? <Link to={'/auth'} /> : <Home />} />
+        <Route path="/" element={token ? <Link to={'/auth'} /> : <Home />} />
         <Route path="/auth" element={<Auth />} />
       </Routes>
     </Router>
