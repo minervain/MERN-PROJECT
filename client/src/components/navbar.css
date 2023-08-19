@@ -1,0 +1,26 @@
+.contain{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #000;
+    color: white;
+
+}
+.container-d{
+    display: flex;
+    justify-content: space-between;
+}
+.post{
+    margin-right: 20px;
+}
+input{
+    outline: none;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   font-size: 1.5em;
+}

@@ -1,0 +1,32 @@
+.containn{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-modal{
+    width: 33%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: gray;
+}
+.inputS{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+}
+
+.postO{
+
+    background-color: lime;
+    cursor: pointer;
+
+}
+.i{
+    margin: 1rem;
+}

@@ -16,7 +16,7 @@ app.use('/',authRouter)
 
 database();
 
-const PORT=5000;
+const PORT=3000;
 
 app.listen(PORT,()=>{
     console.log('server runn',PORT)

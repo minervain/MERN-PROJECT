@@ -4,44 +4,44 @@ import { useDispatch } from 'react-redux'
 import './auth.css'
 
 function Auth() {
-  const [signUp,setSignUp]=useState(true)
-  const [authData,setAuthData]=useState({username:'',email:'',password:''})
-  
-  const dispatch =useDispatch()
+  const [signUp, setSignUp] = useState(true)
+  const [authData, setAuthData] = useState({ username: '', email: '', password: '' })
 
-const onChangeFunc=(e)=>{
-  setAuthData({...authData,[e.target.name]:e.target.value})
-}
-const authFunction=()=>{
-  if(signUp){
-  dispatch(registerAction(authData))
-  }
-  else{
-    dispatch(loginAction(authData))
-  }
+  const dispatch = useDispatch()
 
-}
-console.log(authData)
+  const onChangeFunc = (e) => {
+    setAuthData({ ...authData, [e.target.name]: e.target.value })
+  }
+  const authFunction = () => {
+    if (signUp) {
+      dispatch(registerAction(authData))
+    }
+    else {
+      dispatch(loginAction(authData))
+    }
+
+  }
+  console.log(authData)
 
   return (
     <div>
-      
+
       <div className='a1' >
         <h1>POST PAYLAŞ</h1>
         <div className='b2'>
-{      signUp &&    <input value={authData.username} name='username' onChange={onChangeFunc} type="text" placeholder='username' className='x' />
-}          <input value={authData.email} name='email' onChange={onChangeFunc} type="text" placeholder='email'  className='x'/>
+          {signUp && <input value={authData.username} name='username' onChange={onChangeFunc} type="text" placeholder='username' className='x' />
+          }          <input value={authData.email} name='email' onChange={onChangeFunc} type="text" placeholder='email' className='x' />
 
           <input value={authData.password} name='password' onChange={onChangeFunc} type="text" placeholder='password' className='x' />
 
         </div>
-       { signUp ? <span className='et' onClick={()=>setSignUp(false)}>Kayıt olmak için tıklayınız</span> :
-        <span className='et'  onClick={()=>setSignUp(true)}> Daha önce giriş yaptınız mı?</span>}
+        {signUp ? <span className='et' onClick={() => setSignUp(false)} > Daha önce giriş yaptınız mı</span> :
+          <span className='et' onClick={() => setSignUp(true)}> ?Kayıt olmak için tıklayınız</span>}
 
-        <div onClick={authFunction} className='btn'>{signUp ? 'giriş yap' : 'kayıt ol'}</div>
+        <div onClick={authFunction} className='btn'>{signUp ? 'kayıt ol' : 'giriş yap'}</div>
       </div>
-      
-      Auth</div>
+
+    </div>
   )
 }
 
